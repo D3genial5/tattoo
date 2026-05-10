@@ -1,118 +1,105 @@
+import { FaWhatsapp, FaInstagram } from 'react-icons/fa';
+import Reveal from '../components/Reveal';
 import '../styles/responsive.css';
+
+const KPIS = [
+  { value: '5+', label: 'Años de experiencia' },
+  { value: '300+', label: 'Piezas realizadas' },
+  { value: '100%', label: 'Diseños únicos' },
+];
 
 export default function About() {
   return (
-    <section id="about" style={{
-      background: 'radial-gradient(800px circle at 50% -20%, rgba(13,148,136,0.12), transparent 60%), #0c0c0c',
-      padding: '4.5rem 1rem'
-    }}>
-      <div className="container" style={{ maxWidth: 980, margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-          <h2 style={{ color: 'var(--primary)', letterSpacing: '2px' }}>SOBRE MÍ</h2>
-          <p style={{
-            color: '#d6d6d6',
-            marginTop: '.75rem',
-            maxWidth: 820,
-            margin: '.75rem auto 0',
-            lineHeight: 1.7,
-            fontSize: '1.02rem'
-          }}>
-            <strong>Daniel Rivero</strong>, artista tatuador especializado en estilos minimalistas, microrealismo y conceptual. Residente en Santa Cruz de la Sierra, Bolivia. CEO de <span style={{ color: 'var(--primary)' }}>ÉXODO</span> — “Exclusividad Artística”.
-          </p>
-        </div>
-
-        <div style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '2rem',
-          marginTop: '0.5rem',
-          alignItems: 'flex-start',
-          justifyContent: 'center'
-        }}>
-          {/* En qué creo + Imagen 1 */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%', maxWidth: 420 }}>
-            <div style={{
-              borderRadius: 18,
-              overflow: 'hidden',
-              border: '1px solid rgba(13,148,136,0.2)',
-              boxShadow: '0 18px 50px rgba(0, 0, 0, 0.45)',
-              maxWidth: 420,
-              width: '100%',
-              margin: '0 auto'
-            }}>
-              <img
-                src="/img/about1.jpeg"
-                alt="Daniel en el estudio"
-                loading="lazy"
-                style={{ width: '100%', height: 360, objectFit: 'cover', display: 'block' }}
-              />
-            </div>
+    <section id="about" className="about">
+      <div className="about-bg" aria-hidden="true" />
+      <div className="container about-grid">
+        {/* Left: editorial photo */}
+        <Reveal className="about-media">
+          <div className="about-media-frame">
+            <img
+              src="/img/about1.jpeg"
+              alt="Daniel Rivero en su estudio"
+              loading="lazy"
+              decoding="async"
+            />
+            <span className="about-media-tag">ÉXODO · 2025</span>
           </div>
-
-          {/* Logros + Imagen 2 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%', maxWidth: 420 }}>
-            <div style={{
-              borderRadius: 18,
-              overflow: 'hidden',
-              border: '1px solid rgba(13,148,136,0.2)',
-              boxShadow: '0 18px 50px rgba(0, 0, 0, 0.45)',
-              maxWidth: 420,
-              width: '100%',
-              margin: '0 auto'
-            }}>
-              <img
-                src="/img/about2.jpg"
-                alt="Detalle de trabajo en progreso"
-                loading="lazy"
-                style={{ width: '100%', height: 'auto', maxHeight: 300, objectFit: 'cover', display: 'block' }}
-              />
-            </div>
-            <div style={{ background: 'rgba(17,17,17,0.85)', borderRadius: 12, padding: '1.25rem', border: '1px solid rgba(13,148,136,0.3)', boxShadow: '0 4px 15px rgba(0,0,0,0.25)' }}>
-              <h3 style={{ color: 'var(--primary)', margin: 0, fontSize: '1.1rem' }}>Logros</h3>
-              <ul style={{ color: '#bbb', marginTop: '.5rem', paddingLeft: '1rem' }}>
-                <li>+5 años de experiencia profesional</li>
-                <li>+300 piezas realizadas</li>
-                <li>Especialización en técnica de líneas finas y sombreados sutiles</li>
-              </ul>
-            </div>
-          </div>*/}
-
-          {/* Qué busco + Imagen del estudio */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%', maxWidth: 420 }}>
-            <div style={{
-              borderRadius: 18,
-              overflow: 'hidden',
-              border: '1px solid rgba(13,148,136,0.2)',
-              boxShadow: '0 18px 50px rgba(0, 0, 0, 0.45)',
-              maxWidth: 420,
-              width: '100%',
-              margin: '0 auto'
-            }}>
-              <img
-                src="/img/estudio1.jpg"
-                alt="Espacio del estudio"
-                loading="lazy"
-                style={{ width: '100%', height: 360, objectFit: 'cover', display: 'block' }}
-              />
-            </div>
+          <div className="about-media-secondary">
+            <img
+              src="/img/estudio1.jpg"
+              alt="Espacio del estudio"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2.5rem' }}>
-          <div style={{
-            background: 'rgba(17,17,17,0.85)',
-            borderRadius: 18,
-            padding: '1.5rem 2rem',
-            border: '1px solid rgba(13,148,136,0.25)',
-            boxShadow: '0 10px 28px rgba(0,0,0,0.35)',
-            maxWidth: 780,
-            width: '100%',
-            textAlign: 'center'
-          }}>
-            <h3 style={{ color: 'var(--primary)', margin: 0, fontSize: '1.1rem', letterSpacing: '1px' }}>Qué busco</h3>
-            <p style={{ color: '#bbb', marginTop: '.6rem', lineHeight: 1.6 }}>
-              Proyectos con significado personal, donde el diseño y la técnica se combinen para algo único.
+        </Reveal>
+
+        {/* Right: editorial content */}
+        <div className="about-content">
+          <Reveal>
+            <span className="section-eyebrow section-eyebrow--turquoise">
+              <span className="section-eyebrow-line" />
+              SOBRE MÍ
+              <span className="section-eyebrow-line" />
+            </span>
+          </Reveal>
+
+          <Reveal delay={80}>
+            <h2 className="about-title">
+              Arte sobre la piel,<br />
+              <em>con sentido propio.</em>
+            </h2>
+          </Reveal>
+
+          <Reveal delay={140}>
+            <p className="about-bio">
+              Soy <strong>Daniel Rivero</strong>, tatuador especializado en
+              <em> minimalismo</em>, <em>microrealismo</em> y
+              <em> conceptual</em>. Resido en Santa Cruz de la Sierra y soy CEO
+              de <span className="about-brand">ÉXODO</span> — un estudio donde
+              cada cita es una conversación, y cada pieza, una colaboración.
             </p>
-          </div>
+          </Reveal>
+
+          <Reveal delay={200}>
+            <ul className="about-kpis" role="list">
+              {KPIS.map((k) => (
+                <li key={k.label}>
+                  <span className="about-kpi-value">{k.value}</span>
+                  <span className="about-kpi-label">{k.label}</span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+
+          <Reveal delay={260}>
+            <blockquote className="about-quote">
+              <span className="about-quote-mark" aria-hidden="true">“</span>
+              Busco proyectos con significado personal, donde el diseño y la
+              técnica se combinen para algo único.
+            </blockquote>
+          </Reveal>
+
+          <Reveal delay={320} className="about-actions">
+            <a
+              className="hero-cta hero-cta--primary"
+              href="https://wa.me/59169044422?text=Hola%20Daniel,%20quiero%20agendar%20una%20cita%20para%20un%20tatuaje"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaWhatsapp aria-hidden="true" />
+              Conversemos
+            </a>
+            <a
+              className="hero-cta hero-cta--ghost"
+              href="https://www.instagram.com/danielrivero_tattoo"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaInstagram aria-hidden="true" />
+              Ver Instagram
+            </a>
+          </Reveal>
         </div>
       </div>
     </section>

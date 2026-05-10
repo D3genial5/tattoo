@@ -4,9 +4,7 @@ import About from '../sections/About';
 import TattooStyles from '../sections/StyleOfArt';
 import BookingGuide from '../sections/BookingGuide';
 import Gallery from '../sections/Gallery';
-import Testimonials from '../sections/Testimonials';
 import Contact from '../sections/Contact';
-import Podcast from '../sections/Podcast';
 
 export default function App() {
   return (
@@ -19,8 +17,6 @@ export default function App() {
       <TattooStyles />
       <BookingGuide />
       <Gallery />
-      {/*<Podcast />*/}
-      {/*<Testimonials />*/}
       <Contact />
     </>
   );

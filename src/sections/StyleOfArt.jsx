@@ -1,142 +1,63 @@
+import Reveal from '../components/Reveal';
 import '../styles/responsive.css';
 
-// Imágenes locales de cada estilo
-const minimalistaImg = '/img/minimalista.jpeg';
-const microrealismoImg = '/img/microrealismoImg.jpeg';
-const conceptualImg = '/img/conceptual.jpg';
-
-const tattooStyles = [
-  { 
-    name: 'MINIMALISTA', 
-    img: minimalistaImg,
+const STYLES = [
+  {
+    name: 'Minimalista',
+    img: '/img/minimalista.jpeg',
     description: 'Líneas limpias, detalles sutiles y significado eterno.',
-    icon: '✨'
+    technique: 'Línea fina · 3RL',
   },
-  { 
-    name: 'MICROREALISMO', 
-    img: microrealismoImg,
-    description: 'Detalles hiperrealistas en pequeño formato',
-    icon: '🔍'
+  {
+    name: 'Microrealismo',
+    img: '/img/microrealismoImg.jpeg',
+    description: 'Detalles hiperrealistas en pequeño formato.',
+    technique: 'Sombra suave · Magnum',
   },
-  { 
-    name: 'CONCEPTUAL', 
-    img: conceptualImg,
-    description: 'Fusion de blackwork con lineas finas',
-    icon: '⚫'
+  {
+    name: 'Conceptual',
+    img: '/img/conceptual.jpg',
+    description: 'Fusión de blackwork con líneas finas.',
+    technique: 'Blackwork · Línea',
   },
 ];
 
 export default function TattooStyles() {
   return (
-    <section id="artists" style={{ background: '#0a0a0a', padding: '5rem 1rem' }}>
+    <section id="artists" className="styles-section">
       <div className="container">
-        {/* Header con separador */}
-        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <div style={{ 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center',
-            gap: '1rem',
-            marginBottom: '1rem'
-          }}>
-            <div style={{ height: '2px', width: '60px', background: 'var(--primary)' }}></div>
-            <span style={{ fontSize: '2rem' }}>🎨</span>
-            <div style={{ height: '2px', width: '60px', background: 'var(--primary)' }}></div>
-          </div>
-          <h2 style={{ 
-            color: 'var(--primary)', 
-            fontSize: '2.5rem',
-            letterSpacing: '3px',
-            fontWeight: '700'
-          }}>
-            ESTILOS DE TATUAJE
-          </h2>
-          <p style={{ 
-            color: '#ccc', 
-            fontSize: '1.1rem',
-            marginTop: '1rem',
-            maxWidth: '600px',
-            margin: '1rem auto 0'
-          }}>
-            Especializado en técnicas únicas que resaltan la belleza de cada diseño
+        <Reveal className="section-header">
+          <span className="section-eyebrow">
+            <span className="section-eyebrow-line" />
+            ESTILOS
+            <span className="section-eyebrow-line" />
+          </span>
+          <h2 className="section-title">Tres lenguajes, una firma.</h2>
+          <p className="section-sub">
+            Especialización en técnicas que resaltan la belleza de cada diseño.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="artists-scroll" style={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: '2rem',
-          flexWrap: 'wrap',
-          maxWidth: '1000px',
-          margin: '0 auto'
-        }}>
-          {tattooStyles.map((style) => (
-            <div className="artist-card" key={style.name} style={{ flex: '0 0 280px' }}>
-              <div style={{ 
-                position: 'relative', 
-                overflow: 'hidden',
-                borderRadius: '15px',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'scale(1.05)';
-                e.currentTarget.style.boxShadow = '0 20px 40px rgba(13, 148, 136, 0.3)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'scale(1)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
-              >
-                <img 
-                  src={style.img} 
+        <div className="styles-grid">
+          {STYLES.map((style, i) => (
+            <Reveal key={style.name} delay={i * 100} className="style-card">
+              <div className="style-card-media">
+                <img
+                  src={style.img}
                   alt={style.name}
-                  style={{ 
-                    transition: 'transform 0.3s ease',
-                    height: '300px',
-                    width: '100%',
-                    objectFit: 'cover',
-                    borderRadius: '15px'
-                  }}
+                  loading="lazy"
+                  decoding="async"
                 />
-                <div style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  background: 'linear-gradient(transparent, rgba(0,0,0,0.9))',
-                  padding: '3rem 1rem 1.5rem',
-                  color: 'white',
-                  borderRadius: '0 0 15px 15px'
-                }}>
-                  <div style={{ 
-                    fontSize: '2rem',
-                    textAlign: 'center',
-                    marginBottom: '0.5rem'
-                  }}>
-                    {/*{style.icon}*/}
-                  </div>
-                  <h3 style={{ 
-                    color: 'var(--primary)', 
-                    fontSize: '1.3rem',
-                    letterSpacing: '2px',
-                    margin: '0 0 0.5rem 0',
-                    textAlign: 'center'
-                  }}>
-                    {style.name}
-                  </h3>
-                  <p style={{
-                    fontSize: '0.9rem',
-                    color: '#ccc',
-                    textAlign: 'center',
-                    margin: 0,
-                    lineHeight: '1.4'
-                  }}>
-                    {style.description}
-                  </p>
-                </div>
+                <span className="style-card-num">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
               </div>
-            </div>
+              <div className="style-card-body">
+                <span className="style-card-tech">{style.technique}</span>
+                <h3 className="style-card-name">{style.name}</h3>
+                <p className="style-card-desc">{style.description}</p>
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>
