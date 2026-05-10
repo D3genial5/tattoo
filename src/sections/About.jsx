@@ -17,7 +17,7 @@ export default function About() {
         <Reveal className="about-media">
           <div className="about-media-frame">
             <img
-              src="/img/IMG_0173.PNG"
+              src="/img/IMG_0173.webp"
               alt="Daniel Rivero — retrato"
               loading="lazy"
               decoding="async"
